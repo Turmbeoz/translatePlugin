@@ -5,9 +5,26 @@
  *  palindrome("jmoney"); -> false
  */
 function palindrome(string) {
+// remove all not alpha characters , to lowercase 
+if (string.length < 2) {return true}
+const isAlphabet = letter => 'a'<= letter && letter <= 'z' ;
+const littleString = string.toLowerCase()
+let backwardString = "";
+let cleanString = "";
+for ( let i= string.length-1;i>0;i--){
+    if(isAlphabet(littleString[i])){backwardString += littleString[i]}
+}
+    for (let i = 0;i<string.length-1 ; i++){
+     if (isAlphabet(littleString[i])) {cleanString+=littleString[i]}
+ }
+ return (backwardString===cleanString) 
+// compare each character in the string to the isAlpha function ? false , skip it if True 
+// using 2 pointer system compare start value to end value 
+// work our way to the middle
 
 }
-
+console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna"))
+console.log(palindrome("llama mall"))
 /**
  * returns true is the input is prime.
  * isPrime(1); -> false
@@ -16,9 +33,19 @@ function palindrome(string) {
  * isPrime(4); -> false
  */
 function isPrime(num) {
-
+    if(num === 1) return false
+    // if(nu)
+    let i = 2
+    while(i<num){
+        if(num % i === 0){
+            return false
+        }
+        i++
+    }
+    return true
 }
-
+console.log(isPrime(17))
+console.log(isPrime(2))
 /** returns the nth fibonacci number. A Fibonnaci sequence is a list of numbers that begin with 0 and 1, and each subsequent number is the sum of the previous two
  * nthFibonacci(0); -> 0
  * nthFibonacci(1); -> 1
