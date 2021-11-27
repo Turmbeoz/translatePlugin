@@ -144,28 +144,6 @@ function rockPaperScissors(num) {
 	return outcomes;
 }
 
-//
-// console.log(rockPaperScissors(2));
-// iterate through with two for loops[]
-// one loop holds the base array of 3 options
-//
-// second loop  adds the options to the base array
-//const base = ["rock", "paper", "scissors"];
-// 	const length = 3 ** num
-// 	const output = [];
-// 	for (let i = 0; i < length; i++) {
-// 		const newArr = [];
-// 		for (let j = 0; j < num; j++) {
-// 			newArr.push(base[i]);
-// 			for(let k = 0; k < base.length; k++){
-
-// 			}
-
-// 		}
-// 		output.push(newArr)
-// 	}
-// 	return output;
-// //
 function insertionSort(array) {}
 
 function bubbleSort(array) {
