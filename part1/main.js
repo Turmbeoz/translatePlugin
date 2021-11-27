@@ -13,23 +13,24 @@ function palindrome(string) {
 	const littleString = string.toLowerCase();
 	let backwardString = "";
 	let cleanString = "";
-	for (let i = string.length - 1; i > 0; i--) {
+	for (let i = string.length - 1; i >= 0; i--) {
 		if (isAlphabet(littleString[i])) {
 			backwardString += littleString[i];
 		}
 	}
-	for (let i = 0; i < string.length - 1; i++) {
+	for (let i = 0; i < string.length; i++) {
 		if (isAlphabet(littleString[i])) {
 			cleanString += littleString[i];
 		}
 	}
+
 	return backwardString === cleanString;
 	// compare each character in the string to the isAlpha function ? false , skip it if True
 	// using 2 pointer system compare start value to end value
 	// work our way to the middle
 }
-console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna"));
-console.log(palindrome("llama mall"));
+// console.log(palindrome("Lisa Bonet ate no basil"))
+// console.log(palindrome("A Toyota! Race fast, safe car! A Toyota!"))
 /**
  * returns true is the input is prime.
  * isPrime(1); -> false
@@ -39,7 +40,7 @@ console.log(palindrome("llama mall"));
  */
 function isPrime(num) {
 	if (num === 1) return false;
-	// if(nu)
+
 	let i = 2;
 	while (i < num) {
 		if (num % i === 0) {
@@ -49,8 +50,8 @@ function isPrime(num) {
 	}
 	return true;
 }
-console.log(isPrime(17));
-console.log(isPrime(2));
+// console.log(isPrime(17));
+// console.log(isPrime(2));
 /** returns the nth fibonacci number. A Fibonnaci sequence is a list of numbers that begin with 0 and 1, and each subsequent number is the sum of the previous two
  * nthFibonacci(0); -> 0
  * nthFibonacci(1); -> 1
@@ -95,6 +96,7 @@ function functionBind(func, context) {
 	context.func = func;
 	return () => context.func();
 }
+
 // const mattObj = {
 // 	name: "matt",
 // 	shout: function () {
@@ -128,20 +130,74 @@ function functionBind(func, context) {
  * ['scissors','scissors'],['scissors','paper'],['scissors','rock']]
  */
 function rockPaperScissors(num) {
-	let baseArray = [["rock"], ["paper"], ["scissors"]];
-	if (num === 1) return baseArray;
-	for (let i = 0; i < num - 1; i++) {
-		for (let j = i + 1; j <= num - 2; j++) {}
+	if (num === 0) return [];
+
+	function rps(num, path) {
+		if (num === 0) return outcomes.push(path);
+
+		rps(num - 1, path.concat("rock"));
+		rps(num - 1, path.concat("paper"));
+		rps(num - 1, path.concat("scissors"));
 	}
+	const outcomes = [];
+	rps(num, []);
+	return outcomes;
 }
 
+console.log(rockPaperScissors(2));
 // iterate through with two for loops[]
 // one loop holds the base array of 3 options
 //
 // second loop  adds the options to the base array
-//
+//const base = ["rock", "paper", "scissors"];
+// 	const length = 3 ** num
+// 	const output = [];
+// 	for (let i = 0; i < length; i++) {
+// 		const newArr = [];
+// 		for (let j = 0; j < num; j++) {
+// 			newArr.push(base[i]);
+// 			for(let k = 0; k < base.length; k++){
+
+// 			}
+
+// 		}
+// 		output.push(newArr)
+// 	}
+// 	return output;
+// //
 function insertionSort(array) {}
 
 function bubbleSort(array) {}
 
-function mergeSort(array) {}
+function mergeSort(unsortedArray) {
+	if (unsortedArray.length <= 1) {
+		return unsortedArray;
+	}
+
+	const middle = Math.floor(unsortedArray.length / 2);
+
+	const left = mergeSort(unsortedArray.slice(0, middle));
+	const right = mergeSort(unsortedArray.slice(middle));
+
+	return merge(left, right);
+
+	function merge(left, right) {
+		let merged = [],
+			leftIndex = 0,
+			rightIndex = 0;
+
+		while (leftIndex < left.length && rightIndex < right.length) {
+			if (left[leftIndex] < right[rightIndex]) {
+				merged.push(left[leftIndex]);
+				leftIndex++;
+			} else if (left[leftIndex >= right[rightIndex]]) {
+				merged.push(right[rightIndex]);
+				rightIndex++;
+			} else {
+				merged.push(left[leftIndex++] || right[rightIndex++]);
+			}
+		}
+
+		return merged;
+	}
+}
