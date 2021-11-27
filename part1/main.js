@@ -97,30 +97,6 @@ function functionBind(func, context) {
 	return () => context.func();
 }
 
-// const mattObj = {
-// 	name: "matt",
-// 	shout: function () {
-// 		console.log(this.name);
-// 	},
-// };
-// let boundShout = functionBind(mattObj.shout, mattObj);
-// boundShout();
-// // -> prints 'matt';
-
-// const kimObj = {
-// 	name: "kim",
-// 	shout: function () {
-// 		console.log(this.name);
-// 	},
-// };
-// boundShout = functionBind(mattObj.shout, kimObj);
-// boundShout();
-// //  -> prints 'kim'
-
-// boundShout = functionBind(mattObj.shout, { name: "bob" });
-// boundShout();
-// //  -> prints 'bob'
-
 /**
  * returns every sequence of throws a single player could throw over an n-round game of rock-paper-scissors
  * rockPaperScissors(1); -> [['rock'],['paper'],['scissors']]
