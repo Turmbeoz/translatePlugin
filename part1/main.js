@@ -144,7 +144,8 @@ function rockPaperScissors(num) {
 	return outcomes;
 }
 
-console.log(rockPaperScissors(2));
+//
+// console.log(rockPaperScissors(2));
 // iterate through with two for loops[]
 // one loop holds the base array of 3 options
 //
@@ -167,7 +168,19 @@ console.log(rockPaperScissors(2));
 // //
 function insertionSort(array) {}
 
-function bubbleSort(array) {}
+function bubbleSort(array) {
+	let length = array.length;
+	for (let i = 0; i < length; i++) {
+		for (let j = 0; j < length; j++) {
+			if (array[j] > array[j + 1]) {
+				let temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+			}
+		}
+	}
+	return array;
+}
 
 function mergeSort(unsortedArray) {
 	if (unsortedArray.length <= 1) {
@@ -179,7 +192,7 @@ function mergeSort(unsortedArray) {
 	const left = mergeSort(unsortedArray.slice(0, middle));
 	const right = mergeSort(unsortedArray.slice(middle));
 
-	return merge(left, right);
+	return merge(left, right); // -> final return
 
 	function merge(left, right) {
 		let merged = [],
