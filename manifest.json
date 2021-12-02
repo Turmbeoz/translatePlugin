@@ -1,4 +1,10 @@
 { "name": "Huh?",
 "description": "Google Translate Chrome Extension",
 "version": "1.0",
-"manifest_version": 3}
+"manifest_version": 2,
+"browser_action": {"default_popup": "popup.html"},
+"background": {
+    "service_worker": "main.js"
+  },
+"permissions": ["activeTab"]
+}

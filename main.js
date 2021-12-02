@@ -20,4 +20,13 @@ req.end(function (res) {
 	if (res.error) throw new Error(res.error);
 
 	console.log(res.body.data.translations);
+		// .then(chrome.runtime.onInstalled.addListener(() => {
+		// 	chrome.storage.sync.set({ color });
+		// 	console.log('Default background color set to %cgreen', `color: ${color}`);
+		//   }))
 });
+
+// chrome.runtime.onInstalled.addListener(
+// 	// ADD a cb function to retrieve text from page (??)
+// 	callback: function,
+//   )
